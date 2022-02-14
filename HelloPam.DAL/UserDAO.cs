@@ -50,6 +50,22 @@ namespace HelloPam.DAL
             return null;
         }
 
+        public User Login(string username, string password)
+        {
+            var reader = sql.Read
+            (
+                "Sp_User_Login",
+                GetParameters(new User { Username = username, Password = password }),
+                true
+            );
+
+            while (reader.Read())
+                return GetObject(reader);
+            reader.Close();
+
+            return null;
+        }
+
         public IEnumerable<User> Find(User user)
         {
             var reader = sql.Read
