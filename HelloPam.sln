@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPam.BO", "HelloPam.BO\HelloPam.BO.csproj", "{D1A66F70-9515-4B98-BC82-463BC1AD9A6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPam.DAL", "HelloPam.DAL\HelloPam.DAL.csproj", "{4CDBD11D-8A40-4FCA-BCBE-0F3612E5AFB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D1A66F70-9515-4B98-BC82-463BC1AD9A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1A66F70-9515-4B98-BC82-463BC1AD9A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1A66F70-9515-4B98-BC82-463BC1AD9A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDBD11D-8A40-4FCA-BCBE-0F3612E5AFB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDBD11D-8A40-4FCA-BCBE-0F3612E5AFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDBD11D-8A40-4FCA-BCBE-0F3612E5AFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDBD11D-8A40-4FCA-BCBE-0F3612E5AFB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

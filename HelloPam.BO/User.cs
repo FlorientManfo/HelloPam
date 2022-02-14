@@ -4,14 +4,19 @@ namespace HelloPam.BO
 {
     public class User
     {
+        public enum ProfileOptions
+        {
+            Admin,
+            Visitor
+        }
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Fullname { get; set; }
-        public int Profile { get; set; }
-        public bool Status { get; set; }
+        public ProfileOptions? Profile { get; set; }
+        public bool? Status { get; set; }
         public byte[] Picture { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
 
         public User()
         {
@@ -19,8 +24,8 @@ namespace HelloPam.BO
         }
 
         public User(int id, string username, string password, 
-            string fullname, int profile, bool status, byte[] picture,
-            DateTime createdAt)
+            string fullname, ProfileOptions? profile, bool? status, byte[] picture,
+            DateTime? createdAt)
         {
             Id = id;
             Username = username;
