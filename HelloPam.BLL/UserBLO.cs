@@ -48,14 +48,18 @@ namespace HelloPam.BLL
             return userDAO.Get(id);
         }
 
-        public User GetUser(string username, string password)
+        public User AuthenticateUser(string username, string password)
         {
-            return userDAO.Login(username, password);
+            var user = userDAO.Login(username, password);
+            if (user == null) return null;
+            if (user.Status == false)
+                throw new UnauthorizedAccessException("Your account is disabled !");
+            return user;
         }
 
-        public IEnumerable<User> FindUser(User user)
+        public IEnumerable<User> FindUser(User user = null)
         {
-            return userDAO.Find(user).OrderByDescending(x => x.CreatedAt);
+            return userDAO.Find(user).OrderByDescending(x => x.CreatedAt).ToList();
         }
     }
 }
