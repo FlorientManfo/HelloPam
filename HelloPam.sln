@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPam.BLL", "HelloPam.BL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPam.WinForms", "HelloPam.WinForms\HelloPam.WinForms.csproj", "{2751B11F-705C-4A64-8425-0AACAE80A86F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPam.WebApp", "HelloPam.WebApp\HelloPam.WebApp.csproj", "{57D38820-178C-4657-B1CD-8AD3AA4346C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2751B11F-705C-4A64-8425-0AACAE80A86F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2751B11F-705C-4A64-8425-0AACAE80A86F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2751B11F-705C-4A64-8425-0AACAE80A86F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D38820-178C-4657-B1CD-8AD3AA4346C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D38820-178C-4657-B1CD-8AD3AA4346C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D38820-178C-4657-B1CD-8AD3AA4346C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D38820-178C-4657-B1CD-8AD3AA4346C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
