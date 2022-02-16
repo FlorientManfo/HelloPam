@@ -16,7 +16,8 @@ namespace HelloPam.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUserList());
+            new FrmLogin().Show();
+            Application.Run();
         }
     }
 }

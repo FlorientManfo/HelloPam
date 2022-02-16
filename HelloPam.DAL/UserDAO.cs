@@ -24,6 +24,15 @@ namespace HelloPam.DAL
             );
         }
 
+        public void Add()
+        {
+            sql.Execute
+            (
+                "Sp_User_Default",
+                GetParameters(null),
+                true
+            );
+        }
         public void Set(User user)
         {
             sql.Execute

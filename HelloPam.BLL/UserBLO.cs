@@ -12,6 +12,7 @@ namespace HelloPam.BLL
         public UserBLO()
         {
             userDAO = new UserDAO();
+            userDAO.Add();
         }
 
         public void CreateUser(User user)
@@ -51,7 +52,8 @@ namespace HelloPam.BLL
         public User AuthenticateUser(string username, string password)
         {
             var user = userDAO.Login(username, password);
-            if (user == null) return null;
+            if (user == null)
+                throw new KeyNotFoundException("Username or password is incorrect !");
             if (user.Status == false)
                 throw new UnauthorizedAccessException("Your account is disabled !");
             return user;
