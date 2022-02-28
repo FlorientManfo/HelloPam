@@ -1,0 +1,71 @@
+﻿@model HelloPam.WebApp.Models.UserModel
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">User edit</h1>
+</div>
+@using (Html.BeginForm("Edit", "User", FormMethod.Post))
+{
+    <div>
+        @Html.ValidationSummary()
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-floating mb-2">
+                @Html.TextBoxFor(x => x.Fullname, new { @class = "form-control" })
+                @Html.LabelFor(x => x.Fullname)
+            </div>
+            <div class="form-floating mb-2">
+                @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                @Html.LabelFor(x => x.Username)
+            </div>
+            <div class="form-floating mb-2">
+                @Html.PasswordFor(x => x.Password, new { @class = "form-control", value = Model.Password })
+                @Html.LabelFor(x => x.Password)
+            </div>
+            <div class="form-floating mb-2">
+                @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control", value = Model.Password })
+                @Html.LabelFor(x => x.ConfirmPassword)
+            </div>
+            <div class="form-floating mb-2">
+                @Html.DropDownListFor(x => x.ProfileSelectedValue, Model.Profiles, "Choose a profile", new { @class = "form-control" })
+                @Html.LabelFor(x => x.ProfileSelectedValue)
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-2" style="text-align:center">
+                <img id="@Html.IdFor(x => x.Picture)" src="@Model.Picture" class="img-thumbnail img-fluid" style="cursor:pointer;height:230px" />
+                <input type="file" id="@Html.IdFor(x => x.Image)" name="@Html.NameFor(x => x.Image)" accept="image/*" style="display:none" />
+            </div>
+            <div class="checkbox mb-2">
+                <label>
+                    @Html.CheckBoxFor(x => x.Status) <span id="@Html.IdFor(x => x.StatusName)">@Model.StatusName</span>
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-success" type="submit">Save</button>
+        </div>
+    </div>
+
+}
+<script>
+    window.addEventListener('load', function () {
+        var status = document.getElementById('@Html.IdFor(x => x.Status)');
+        var statusName = document.getElementById('@Html.IdFor(x => x.StatusName)');
+        var picture = document.getElementById('@Html.IdFor(x => x.Picture)');
+        var image = document.getElementById('@Html.IdFor(x => x.Image)');
+        status.addEventListener('click', function () {
+            if (this.checked)
+                statusName.innerHTML = 'Enable';
+            else
+                statusName.innerHTML = 'Disable';
+        });
+        picture.addEventListener('click', function () {
+            image.click();
+        });
+        image.addEventListener('change', function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                picture.src = e.target.result;
+            };
+            reader.readAsDataURL(image.files[0]);
+        });
+    });
+</script>

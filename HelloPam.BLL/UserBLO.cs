@@ -49,6 +49,14 @@ namespace HelloPam.BLL
             return userDAO.Get(id);
         }
 
+        /// <summary>
+        /// Authencate a user by username and password
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>BO.User</returns>
+        /// <exception cref="KeyNotFoundException">KeyNotFoundException</exception>
+        /// <exception cref="UnauthorizedAccessException">UnauthorizedAccessException</exception>
         public User AuthenticateUser(string username, string password)
         {
             var user = userDAO.Login(username, password);
