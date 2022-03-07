@@ -7,27 +7,28 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Hello Pam</title>
+    <title>@ViewBag.Title - Hello Pam</title>
 
     <!-- Bootstrap core CSS -->
     <link href="~/Css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Css/fontawesome/css/all.min.css" rel="stylesheet">
     <meta name="theme-color" content="#7952b3">
 
 
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @@media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
-      }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
     </style>
 
 
@@ -41,7 +42,7 @@
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        @RenderSection("searchBar", false)
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <a class="nav-link px-3" href="@Url.Action("Logout", "Account")">Sign out</a>
@@ -55,7 +56,7 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home")">
+                            <a class="nav-link @ViewBag.Home" aria-current="page" href="@Url.Action("Index", "Home")">
                                 <span data-feather="home"></span>
                                 Dashboard
                             </a>
@@ -91,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "User")">
+                            <a class="nav-link @ViewBag.User" href="@Url.Action("Index", "User")">
                                 <span data-feather="users"></span>
                                 Users
                             </a>
@@ -132,12 +133,12 @@
                     </ul>
                 </div>
             </nav>
-
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 @RenderBody()
             </main>
         </div>
     </div>
+    @RenderSection("script", false)
 </body>
 </html>
 

@@ -1,7 +1,12 @@
 ﻿@model IEnumerable<HelloPam.WebApp.Models.UserModel>
+@{
+    ViewBag.Title = "User list";
+    ViewBag.User = "active";
+}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">User list</h1>
+    <h1 class="h2">@ViewBag.Title</h1>
 </div>
+<a class="btn btn-outline-success" href="@Url.Action("Create", "User")"><i class="fa-solid fa-plus"></i> New</a>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>
@@ -21,13 +26,26 @@
                 foreach (var user in Model)
                 {
                     <tr>
-                        <td><img src="@user.Picture" class="img-fluid" style="width:50px" /></td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(user.Picture))
+                            {
+                                <img src="@user.Picture" class="img-fluid" style="width:50px" />
+                            }
+                            else
+                            {
+                                <img src="~/Images/default_user_picture.png" class="img-fluid" style="width: 50px;">
+                            }
+                        </td>
                         <td>@user.Username</td>
                         <td>@user.Fullname</td>
                         <td>@user.Profile</td>
                         <td>@user.CreatedAt</td>
                         <td>@user.StatusName</td>
-                        <td>@Html.ActionLink("Edit", "Edit", "User", new { id = user.Id }, null)</td>
+                        <td>
+                            <a title="Details" class="text-secondary" href="@Url.Action("Details", "User", new { id = user.Id })"><i class="fa-solid fa-circle-info"></i></a>&nbsp;&nbsp;
+                            <a title="Edit" class="text-primary" href="@Url.Action("Edit", "User", new { id = user.Id })"><i class="fa-solid fa-pencil"></i></a>&nbsp;&nbsp;
+                            <a title="Delete" class="text-danger" href="@Url.Action("Delete", "User", new { id = user.Id })" onclick="return confirm('Do you really want to delete @HttpUtility.JavaScriptStringEncode(user.Fullname) ?')"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
                     </tr>
                 }
             }
@@ -40,3 +58,11 @@
         </tbody>
     </table>
 </div>
+@section searchBar
+{
+    @using (Html.BeginForm("Index", "User", FormMethod.Get, new { @class = "w-100" }))
+    {
+        @Html.TextBox("Value",  null, new  { @class="form-control form-control-dark w-100", placeholder = "Search a user...", aria_label = "Search" })
+        <button type="submit" style="display:none"></button>
+    }
+}

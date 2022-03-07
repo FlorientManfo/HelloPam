@@ -90,8 +90,10 @@
   <ItemGroup>
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\Dashboard.css" />
+    <Content Include="Css\fontawesome\css\all.min.css" />
     <Content Include="Css\signin.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\default_user_picture.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +110,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Css\fontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="Css\fontawesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="Css\fontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Css\fontawesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="Css\fontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Css\fontawesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="Css\fontawesome\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="Css\fontawesome\webfonts\fa-v4compatibility.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -116,6 +126,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
